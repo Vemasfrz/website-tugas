@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pribadi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf5e6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(139, 69, 19, 0.8); /* Semi-transparent background */
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .login img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .login h1 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .login button {
+            background-color: #f8e4c1;
+            color: #5a3e2b;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login button:hover {
+            background-color: #eed8aa;
+        }
+
+        header {
+            background-color: #5a3e2b;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .section {
+            background-color: #f8e4c1;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #5a3e2b;
+            border-bottom: 2px solid #8b4513;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #eed8aa;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .menu span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #5a3e2b;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Ensure responsive layout */
+        @media (max-width: 600px) {
+            .login {
+                width: 90%;
+            }
+
+            .container {
+                width: 100%;
+                padding: 0.5rem;
+            }
+        }
+
+        /* Style for the back button */
+        .back-button {
+            background-color: #f8e4c1;
+            color: #5a3e2b;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .back-button:hover {
+            background-color: #eed8aa;
+        }
+
+    </style>
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('active');
+        }
+
+        function goBackToLogin() {
+            document.getElementById('main-content').style.display = 'none';
+            document.querySelector('.login').style.display = 'flex';
+        }
+    </script>
+</head>
+<body>
+    <div class="login">
+        <img src="img/widia.jpg" alt="Foto Profil">
+        <h1>Selamat Datang</h1>
+        <button onclick="document.getElementById('main-content').style.display='block'; this.parentElement.style.display='none';">Masuk</button>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <header>
+            <h1>Profil Pribadi</h1>
+        </header>
+
+        <div class="container">
+            <div class="menu" onclick="toggleSection('tentang')">
+                <h2>Tentang Saya</h2>
+                <span>&#x22EE;</span>
+            </div>
+            <div id="tentang" class="section">
+                <h2>Tentang Saya</h2>
+                <p>Saya seorang mahasiswa yang berkomitmen untuk menjadi Cyber Security, maka dari itu saya sekarang kuliah mengambil jurusan Teknik Informatika, dengan latar belakang pendidikan elektro dan pengeditan serta berpengalaman bekerja.</p>
+            </div>
+
+            <div class="menu" onclick="toggleSection('informasi-pribadi')">
+                <h2>Informasi Pribadi</h2>
+                <span>&#x22EE;</span>
+            </div>
+            <div id="informasi-pribadi" class="section">
+                <h2>Informasi Pribadi</h2>
+                <div><strong>Nama:</strong> Vemas Fariza</div>
+                <div><strong>Usia:</strong> 19</div>
+                <div><strong>Alamat:</strong> Kab. Kuningan Kec. Kramatmulya Ds. Gandasoli Dsn. Pajawan RT/RW 13/03</div>
+                <div><strong>Email:</strong> <a href="mailto:vemasfariza2@gmail.com">vemasfariza2@gmail.com</a></div>
+            </div>
+
+            <div class="menu" onclick="toggleSection('pendidikan')">
+                <h2>Pendidikan Terakhir</h2>
+                <span>&#x22EE;</span>
+            </div>
+            <div id="pendidikan" class="section">
+                <h2>Pendidikan Terakhir</h2>
+                <div>2020 - SMPN 1 Kramatmulya</div>
+                <div>2023 - SMK Karya Nasional Kuningan</div>
+                <div>Now - Universitas Kuningan</div>
+            </div>
+
+            <div class="menu" onclick="toggleSection('tentang-kuliah')">
+                <h2>Tentang Kuliah</h2>
+                <span>&#x22EE;</span>
+            </div>
+            <div id="tentang-kuliah" class="section">
+                <h2>Tentang Kuliah</h2>
+                <p>Saat ini saya berada di program studi Teknik Informatika Universitas Kuningan. Saya membuat website sederhana ini untuk tugas praktikum pemrograman fundamental menggunakan HTML dan CSS.</p>
+            </div>
+
+            <div class="menu" onclick="toggleSection('minat')">
+                <h2>Minat</h2>
+                <span>&#x22EE;</span>
+            </div>
+            <div id="minat" class="section">
+                <h2>Minat</h2>
+                <p>Saya sangat tertarik dengan perkembangan teknologi terbaru, khususnya dalam dunia cyber security. Saya selalu berusaha mengikuti tren dan belajar hal-hal baru di bidang ini untuk menambah atau memperluas pengetahuan saya.</p>
+            </div>
+
+            <!-- Kembali ke halaman login -->
+            <button class="back-button" onclick="goBackToLogin()">Kembali ke Halaman Login</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Copyright by Vemas Fariza</p>
+        </footer>
+    </div>
+</body>
+</html>
